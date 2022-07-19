@@ -6,4 +6,41 @@
 body {
   margin: 0;
   padding: 25px;
+  color: #00ff41;
+  background-color: #0D0208;
+}
+
+.start-screen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-screen--title {
+  margin-top: -50px;
+  font-size: 3rem;
+}
+
+.start-screen--description {
+  font-size: 1.125rem;
+  text-align: center;
+  width: 500px;
+}
+
+.start-screen--btn {
+  border: none;
+  background-color: #00ff41;
+  width: 200px;
+  height: 55px;
+  font-size: 1.125rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 35px;
+}
+
+.start-screen--btn:hover {
+  background-color: #008f11;
 }
