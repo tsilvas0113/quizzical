@@ -39,6 +39,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   margin-top: 35px;
+  transition: background-color 275ms ease-in-out;
 }
 
 .start-screen--btn:hover {
