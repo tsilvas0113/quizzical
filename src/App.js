@@ -1,4 +1,6 @@
 import React from "react";
+import { nanoid } from "nanoid"
+import Quiz from "./components/Quiz";
 
 function App() {
 
@@ -8,12 +10,19 @@ function App() {
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple")
       .then(res => res.json())
-      .then(data => setQuizQuestions(data))
+      .then(data => setQuizQuestions(data.results))
   }, [])
   
   function startNewGame() {
     setGameStart(!gameStart)
   }
+
+  const quizElements = quizQuestions.map(quiz => {
+    return <Quiz
+      key={nanoid()}
+      question={quiz.question}
+      />
+  })
 
   return (
     <main>
@@ -21,7 +30,7 @@ function App() {
       gameStart
       ?
       <div>
-        <h1>Game Screen</h1>
+        {quizElements}
       </div>
       :
       <div className='start-screen'>
