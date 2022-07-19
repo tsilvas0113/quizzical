@@ -2,8 +2,15 @@ import React from "react";
 
 function App() {
 
+  const [quizQuestions, setQuizQuestions] = React.useState([])
   const [gameStart, setGameStart] = React.useState(false)
 
+  React.useEffect(() => {
+    fetch("https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple")
+      .then(res => res.json())
+      .then(data => setQuizQuestions(data))
+  }, [])
+  
   function startNewGame() {
     setGameStart(!gameStart)
   }
