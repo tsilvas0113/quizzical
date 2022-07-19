@@ -45,3 +45,31 @@ body {
 .start-screen--btn:hover {
   background-color: #008f11;
 }
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  padding-left: 75px;
+  padding-top: 40px;
+}
+
+.quiz--questions {
+  font-size: 1.5rem;
+  line-height: 21px;
+}
+
+.quiz--answers {
+  margin-top: 34px;
+  display: grid;
+  grid-template: 1fr / repeat(4, 1fr);
+  justify-items: center;
+  width: 35%;
+}
+
+.quiz--answers > button {
+  color: #00ff41;
+  border: 1px solid #00ff41;
+  background-color: #0D0208;
+  border-radius: 8px;
+  cursor: pointer;
+}

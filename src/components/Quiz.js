@@ -3,12 +3,12 @@ import React from "react";
 function Quiz(props) {
     return (
         <div className="quiz">
-            <div className="quiz--question">{props.question}</div>
+            <div className="quiz--questions">{props.question}</div>
             <div className="quiz--answers">
-                <span>Answer 1</span>
-                <span>Answer 2</span>
-                <span>Answer 3</span>
-                <span>Answer 4</span>
+                <button>Answer 1</button>
+                <button>Answer 2</button>
+                <button>Answer 3</button>
+                <button>Answer 4</button>
             </div>
         </div>
     )
