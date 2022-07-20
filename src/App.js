@@ -4,23 +4,27 @@ import Quiz from "./components/Quiz";
 
 function App() {
 
-  const [quizQuestions, setQuizQuestions] = React.useState([])
+  const [quizData, setQuizData] = React.useState([])
   const [gameStart, setGameStart] = React.useState(false)
 
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple")
       .then(res => res.json())
-      .then(data => setQuizQuestions(data.results))
+      .then(data => setQuizData(data.results))
   }, [])
   
   function startNewGame() {
     setGameStart(!gameStart)
   }
 
-  const quizElements = quizQuestions.map(quiz => {
+  const quizElements = quizData.map(quiz => {
+    const randomIndex = Math.floor(Math.random() * 3)
+    const allAnswers = [...quiz.incorrect_answers]
+    allAnswers.splice(randomIndex, 0, quiz.correct_answer)
     return <Quiz
       key={nanoid()}
       question={quiz.question}
+      answers={allAnswers}
       />
   })
 

@@ -1,14 +1,19 @@
 import React from "react";
+import { nanoid } from "nanoid";
 
 function Quiz(props) {
+
+    const answerElements = props.answers.map(item =>{
+        return (
+            <button key={nanoid()}>{item}</button>
+        )    
+    })
+
     return (
         <div className="quiz">
             <div className="quiz--questions">{props.question}</div>
             <div className="quiz--answers">
-                <button>Answer 1</button>
-                <button>Answer 2</button>
-                <button>Answer 3</button>
-                <button>Answer 4</button>
+                {answerElements}
             </div>
         </div>
     )

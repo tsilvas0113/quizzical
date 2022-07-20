@@ -63,7 +63,7 @@ body {
   display: grid;
   grid-template: 1fr / repeat(4, 1fr);
   justify-items: center;
-  width: 35%;
+  width: 65%;
 }
 
 .quiz--answers > button {
@@ -73,6 +73,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: transform 200ms ease-in-out;
+  width: 175px;
 }
 
 .quiz--answers > button:hover {
