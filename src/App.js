@@ -1,6 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid"
-import Quiz from "./components/Quiz";
+import Questions from "./components/Questions";
 
 function App() {
 
@@ -45,11 +45,12 @@ function App() {
 
   return (
     <main>
-    {
-      gameStart
-      ?
-      <div>
-        <h1>reset</h1>
+      {gameStart ?
+      <div>         
+        <Questions 
+          question={quizQuestion}
+          answers={quizAnswers}
+        />
       </div>
       :
       <div className='start-screen'>
@@ -61,8 +62,7 @@ function App() {
           onClick={startNewGame}
           >Start quiz
         </button>
-      </div>
-    }
+      </div>}
     </main>
   );
 }
