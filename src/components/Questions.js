@@ -9,7 +9,7 @@ function Questions(props) {
     const answersElement = props.answers.map(answer => {
         return answer.map(item => {
             return (
-                <button key={item.id}>{item.value}</button>
+                <button key={item.id}>{item.value.replace(regex, "").replace(otherRegex, "e")}</button>
             )
         }) 
     })
@@ -18,7 +18,7 @@ function Questions(props) {
         return (
             <div className="quiz">
                 <div className="quiz--questions" key={question.id}>
-                    <div>{question.value}</div>
+                    <div>{question.value.replace(regex, "").replace(otherRegex, "e")}</div>
                 </div>
                 <div className="quiz--answers">
                     {answersElement[i]}
