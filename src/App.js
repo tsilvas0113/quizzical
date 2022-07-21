@@ -4,29 +4,44 @@ import Quiz from "./components/Quiz";
 
 function App() {
 
-  const [quizData, setQuizData] = React.useState([])
+  const [quizQuestion, setQuizQuestion] = React.useState([])
+  const [quizAnswers, setQuizAnswers] = React.useState([])
   const [gameStart, setGameStart] = React.useState(false)
 
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple")
       .then(res => res.json())
-      .then(data => setQuizData(data.results))
+      .then(data => {
+        return setQuizQuestion(() => data.results.map(item => {
+          return {
+            value: item.question,
+            id: nanoid()
+          }
+        })),
+        setQuizAnswers(() => data.results.map(item => {
+          const incorrectArr = item.incorrect_answers.map(item => ({
+            value: item, id: nanoid(), isHeld: false
+          }))
+          const correctAnswer = {value: item.correct_answer, id: nanoid(), isHeld: false, isCorrect: true}
+          const randomIndex = Math.floor(Math.random() * 4)
+          const allAnswersArr = incorrectArr
+          allAnswersArr.splice(randomIndex, 0, correctAnswer)
+          return allAnswersArr
+        }))
+      })
   }, [])
   
   function startNewGame() {
     setGameStart(!gameStart)
   }
 
-  const quizElements = quizData.map(quiz => {
-    const randomIndex = Math.floor(Math.random() * 3)
-    const allAnswers = [...quiz.incorrect_answers]
-    allAnswers.splice(randomIndex, 0, quiz.correct_answer)
-    return <Quiz
-      key={nanoid()}
-      question={quiz.question}
-      answers={allAnswers}
-      />
-  })
+  function holdAnswer(id) {
+    setQuizAnswers(oldState => oldState.map(answer => {
+      return answer.id === id ?
+        {...answer, isHeld: !answer.isHeld} :
+        answer
+    }))
+  }
 
   return (
     <main>
@@ -34,7 +49,7 @@ function App() {
       gameStart
       ?
       <div>
-        {quizElements}
+        <h1>reset</h1>
       </div>
       :
       <div className='start-screen'>
