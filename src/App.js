@@ -35,11 +35,16 @@ function App() {
     setGameStart(!gameStart)
   }
 
-  function holdAnswer(id) {
+  function holdAnswer(event, id) {
     setQuizAnswers(oldState => oldState.map(answer => {
-      return answer.id === id ?
-        {...answer, isHeld: !answer.isHeld} :
-        answer
+      const targetAnswer = answer.find(e => e.id === id)
+      if (answer.includes(targetAnswer))
+        return answer.map(obj => {
+          return obj.id === id ? {...obj, isHeld: !obj.isHeld} : {...obj, isHeld: false}
+      })
+      else {
+        return answer
+      }
     }))
   }
 
@@ -50,6 +55,7 @@ function App() {
         <Questions 
           question={quizQuestion}
           answers={quizAnswers}
+          holdAnswer={holdAnswer}
         />
       </div>
       :

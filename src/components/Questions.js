@@ -8,8 +8,12 @@ function Questions(props) {
 
     const answersElement = props.answers.map(answer => {
         return answer.map(item => {
+            const styles = {
+                backgroundColor: item.isHeld ? "#0dffd2" : "#0d0208",
+                color: item.isHeld ? "#0d0208" : "#00ff41"
+            }
             return (
-                <button key={item.id}>{item.value.replace(regex, "").replace(otherRegex, "e")}</button>
+                <button key={item.id} style={styles} onClick={(e) => props.holdAnswer(e, item.id)}>{item.value.replace(regex, "").replace(otherRegex, "e")}</button>
             )
         }) 
     })
