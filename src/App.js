@@ -7,6 +7,8 @@ function App() {
   const [quizQuestion, setQuizQuestion] = React.useState([])
   const [quizAnswers, setQuizAnswers] = React.useState([])
   const [gameStart, setGameStart] = React.useState(false)
+  const [gameDone, setGameDone] = React.useState(false)
+  const [score, setScore] = React.useState(0)
 
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple")
@@ -48,6 +50,10 @@ function App() {
     }))
   }
 
+  function checkGame() {
+    setGameDone(true)
+  }
+
   return (
     <main>
       {gameStart ?
@@ -57,6 +63,14 @@ function App() {
           answers={quizAnswers}
           holdAnswer={holdAnswer}
         />
+        <div className="bottom">
+            {gameDone ?
+            <div>
+              <span className="score">You scored {score}/10 correct answers</span><button className="check-btn">Play again</button>
+            </div>
+            :
+            <button className="check-btn" onClick={checkGame}>Check answers</button>}
+        </div>
       </div>
       :
       <div className='start-screen'>

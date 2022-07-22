@@ -101,3 +101,8 @@ body {
 .check-btn:hover {
   background-color: #0dffd2;
 }
+
+.score {
+  margin-right: 45px;
+  font-size: 1.3rem;
+}

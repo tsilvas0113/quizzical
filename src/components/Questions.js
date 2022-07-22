@@ -34,9 +34,6 @@ function Questions(props) {
     return (
         <div>
             {questionElement}
-            <div className="bottom">
-                <button className="check-btn">Check answers</button>
-            </div>
         </div>
     )
 }
