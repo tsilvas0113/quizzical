@@ -52,6 +52,13 @@ function App() {
 
   function checkGame() {
     setGameDone(true)
+    quizAnswers.map(item => {
+      return item.map(x => {
+        if(x.isHeld && x.isCorrect) {
+          setScore(prevScore => prevScore + 1)
+        }
+      })
+    })
   }
 
   return (
