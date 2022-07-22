@@ -31,7 +31,7 @@ function App() {
           return allAnswersArr
         }))
       })
-  }, [])
+  }, [gameStart])
   
   function startNewGame() {
     setGameStart(!gameStart)
@@ -61,6 +61,12 @@ function App() {
     })
   }
 
+  function playAgain() {
+    setGameDone(false)
+    setScore(0)
+    setGameStart(false)
+  }
+
   return (
     <main>
       {gameStart ?
@@ -73,7 +79,7 @@ function App() {
         <div className="bottom">
             {gameDone ?
             <div>
-              <span className="score">You scored {score}/10 correct answers</span><button className="check-btn">Play again</button>
+              <span className="score">You scored {score}/10 correct answers</span><button className="check-btn" onClick={playAgain}>Play again</button>
             </div>
             :
             <button className="check-btn" onClick={checkGame}>Check answers</button>}
