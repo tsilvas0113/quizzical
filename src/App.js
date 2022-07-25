@@ -75,6 +75,7 @@ function App() {
           question={quizQuestion}
           answers={quizAnswers}
           holdAnswer={holdAnswer}
+          checkGame={gameDone}
         />
         <div className="bottom">
             {gameDone ?

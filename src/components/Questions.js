@@ -12,8 +12,13 @@ function Questions(props) {
                 backgroundColor: item.isHeld ? "#0dffd2" : "#0d0208",
                 color: item.isHeld ? "#0d0208" : "#00ff41"
             }
+            const gameDoneStyle = {
+                backgroundColor: item.isCorrect ? "#0dffd2" : item.isHeld ? "#e80400" : "#0d0208",
+                color: item.isCorrect ? "#0d0208" : item.isHeld ? "#0dffd2" : "#00ff41",
+                borderColor: item.isCorrect ? "#00ff41" : item.isHeld? "#e80400" : "#00ff41"
+            }
             return (
-                <button key={item.id} style={styles} onClick={(e) => props.holdAnswer(e, item.id)}>{item.value.replace(regex, "").replace(otherRegex, "e")}</button>
+                <button key={item.id} style={props.checkGame ? gameDoneStyle : styles} onClick={(e) => props.holdAnswer(e, item.id)}>{item.value.replace(regex, "").replace(otherRegex, "e")}</button>
             )
         }) 
     })
