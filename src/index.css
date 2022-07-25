@@ -63,6 +63,7 @@ body {
   display: grid;
   grid-template: 1fr / repeat(4, 1fr);
   justify-items: center;
+  gap: 20px;
   width: 65%;
 }
 
@@ -73,7 +74,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: transform 200ms ease-in-out;
-  width: 175px;
+  width: 145px;
 }
 
 .quiz--answers > button:hover {
@@ -85,8 +86,14 @@ body {
   justify-content: center;
 }
 
+.bottom-box {
+  display: grid;
+  grid-template: 2fr / 1fr;
+  justify-items: center;
+}
+
 .check-btn {
-  margin-top: 100px;
+  margin-top: 50px;
   color: #0D0208;
   background-color: #00ff41;
   border: none;
@@ -103,6 +110,120 @@ body {
 }
 
 .score {
-  margin-right: 45px;
+  margin-top: 40px;
   font-size: 1.3rem;
+}
+
+@media (min-width: 2000px) {
+  .start-screen--title {
+    margin-top: -70px;
+    font-size: 5rem;
+  }
+
+  .start-screen--description {
+    font-size: 2rem;
+    width: 900px;
+  }
+
+  .start-screen--btn {
+    width: 300px;
+    height: 85px;
+    font-size: 2rem;
+    margin-top: 45px;
+  }
+
+  .quiz--questions {
+    font-size: 2.3rem;
+    line-height: 30px;
+  }
+
+  .quiz--answers {
+    margin-top: 44px;
+  }
+
+  .quiz--answers>button {
+    width: 275px;
+    font-size: 1.2rem;
+  }
+
+  .quiz--answers>button:hover {
+    transform: scale(1.4);
+  }
+
+  .check-btn {
+    width: 450px;
+    height: 100px;
+    font-size: 2rem;
+  }
+
+  .score {
+    font-size: 2.1rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 690px) {
+  .start-screen--title {
+      margin-top: -25px;
+      font-size: 1.9rem;
+      text-align: center;
+      letter-spacing: 3px;
+    }
+  
+  .start-screen--description {
+    font-size: 1rem;
+    text-align: center;
+    width: 285px;
+  }
+
+  .start-screen--btn {
+    width: 150px;
+    height: 35px;
+    font-size: 1rem;
+    margin-top: 35px;
+  }
+
+  .quiz {
+    padding-left: 0;
+  }
+
+  .quiz--questions {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    width: 82%;
+    line-height: 21px;
+  }
+
+  .quiz--answers {
+    margin-top: 34px;
+    grid-template: 2fr / repeat(2, 1fr);
+    gap: 20px;
+    width: 90%;
+  }
+
+  .quiz--answers>button {
+    width: 120px;
+  }
+
+  .quiz--answers>button:hover {
+    transform: scale(1.125);
+  }
+
+  .bottom-box {
+    display: grid;
+    grid-template: 2fr / 1fr;
+    justify-items: center;
+  }
+
+  .check-btn {
+    width: 150px;
+    height: 50px;
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+
+  .score {
+    font-size: 1.125rem;
+    margin-right: 0;
+    margin-top: 40px;
+  }
 }

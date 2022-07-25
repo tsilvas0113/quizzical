@@ -79,8 +79,8 @@ function App() {
         />
         <div className="bottom">
             {gameDone ?
-            <div>
-              <span className="score">You scored {score}/10 correct answers</span><button className="check-btn" onClick={playAgain}>Play again</button>
+            <div className="bottom-box">
+              <div className="score">You scored {score}/10 correct answers</div><button className="check-btn" onClick={playAgain}>Play again</button>
             </div>
             :
             <button className="check-btn" onClick={checkGame}>Check answers</button>}

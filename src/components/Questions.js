@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 
 function Questions(props) {
 
-    const regex = /(&quot;)|(&#039;t)|(&#039;s)|(&#039;)|(&amp;!)|(&amp;)|(&uuml;)/gi;
+    const regex = /(&quot;)|(&#039;t)|(&#039;s)|(&#039;)|(&amp;!)|(&amp;)|(&uuml;)|(&rsquo;)/gi;
     const otherRegex = /&eacute;/gi;
 
     const answersElement = props.answers.map(answer => {
