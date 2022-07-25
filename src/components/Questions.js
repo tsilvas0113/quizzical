@@ -1,5 +1,4 @@
 import React from "react";
-import { nanoid } from "nanoid";
 
 function Questions(props) {
 
